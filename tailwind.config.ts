@@ -9,19 +9,19 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Yelk Finance brand colors
+        // Yelk Finance brand colors — blauw
         yelk: {
-          50:  "#f0f9f4",
-          100: "#dcf1e6",
-          200: "#bbe3cf",
-          300: "#8bcdb0",
-          400: "#56b08d",
-          500: "#2d9970",  // primary green
-          600: "#1e7a58",
-          700: "#196247",
-          800: "#164f3a",
-          900: "#134130",
-          950: "#0a2620",
+          50:  "#f3f7ff",
+          100: "#eaeeff",
+          200: "#dbe7ff",
+          300: "#b8caff",
+          400: "#8ea4ff",
+          500: "#5d87ff",
+          600: "#4f6dff",
+          700: "#1a39ff",
+          800: "#0a1f9c",
+          900: "#071436",
+          950: "#0b1736",
         },
         slate: {
           850: "#1a2332",
@@ -54,8 +54,8 @@ const config: Config = {
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "yelk-gradient": "linear-gradient(135deg, #2d9970 0%, #196247 100%)",
-        "dark-gradient": "linear-gradient(180deg, #0d1117 0%, #0a2620 100%)",
+        "yelk-gradient": "linear-gradient(135deg, #0a1f9c 0%, #1a39ff 58%, #4f6dff 100%)",
+        "dark-gradient": "linear-gradient(180deg, #0b1736 0%, #071436 100%)",
       },
     },
   },
