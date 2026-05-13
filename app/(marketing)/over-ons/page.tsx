@@ -25,7 +25,7 @@ export default function OverOnsPage() {
               <h2 className="text-3xl font-bold text-slate-900 mb-4">Onze missie</h2>
               <p className="text-slate-600 leading-relaxed mb-4">
                 Yelk Finance is opgericht met één doel: boekhouding begrijpelijk en betaalbaar maken
-                voor elke ondernemer in Nederland. Of u nu ZZP'er bent of een groeiend bedrijf runt,
+                voor elke ondernemer in Nederland. Of u nu ZZP&apos;er bent of een groeiend bedrijf runt,
                 wij zorgen dat uw administratie altijd klopt.
               </p>
               <p className="text-slate-600 leading-relaxed">

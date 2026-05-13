@@ -110,7 +110,7 @@ export default function ProfielPage() {
             </div>
             <div>
               <label className="label">E-mailadres</label>
-              <input className="input" type="email" value={profile.email} disabled className="input bg-slate-50 cursor-not-allowed" />
+              <input className="input bg-slate-50 cursor-not-allowed" type="email" value={profile.email} disabled />
               <p className="text-xs text-slate-400 mt-1">E-mailadres kan niet worden gewijzigd.</p>
             </div>
             <button type="submit" disabled={loading} className="btn-primary">

@@ -5,9 +5,15 @@
 
 @layer base {
   :root {
-    --yelk-green: #2d9970;
-    --yelk-green-dark: #196247;
-    --yelk-green-light: #56b08d;
+    --brand: #5d87ff;
+    --brand-deep: #1a39ff;
+    --brand-soft: #eaeeff;
+    --gradient-brand: linear-gradient(135deg, #0a1f9c 0%, #1a39ff 58%, #4f6dff 100%);
+    --bg: #f3f7ff;
+    --text: #0b1736;
+    --muted: #64748b;
+    --mint: #0e7490;
+    --line: #dbe7ff;
     --background: 0 0% 100%;
     --foreground: 222 47% 11%;
     scroll-behavior: smooth;

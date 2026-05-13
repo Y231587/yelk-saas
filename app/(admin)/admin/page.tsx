@@ -18,7 +18,7 @@ export default async function AdminDashboard() {
     { count: totalCustomers },
     { count: activeCustomers },
     { count: failedPayments },
-    { count: totalDocs },
+    { count: _totalDocs },
     { data: recentCustomers },
   ] = await Promise.all([
     supabase.from("customers").select("*", { count: "exact", head: true }),
@@ -34,7 +34,7 @@ export default async function AdminDashboard() {
     .eq("status", "active");
 
   const totalMRR = (subscriptions ?? []).reduce((sum, s) => {
-    const pkg = s.packages as { monthly_price_eur: number } | null;
+    const pkg = s.packages as unknown as { monthly_price_eur: number } | null;
     return sum + (pkg ? Number(pkg.monthly_price_eur) : 0);
   }, 0);
 

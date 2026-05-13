@@ -1,13 +1,12 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { Suspense, useState } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { Loader2, Eye, EyeOff, CheckCircle2, AlertCircle } from "lucide-react";
-import { createClient } from "@/lib/supabase/client";
 import { formatCurrency } from "@/lib/utils";
 import toast from "react-hot-toast";
-import type { Package, PlanKey } from "@/types";
+import type { PlanKey } from "@/types";
 
 const PLAN_INFO: Record<string, { price: number; setup: number; label: string }> = {
   start: { price: 99, setup: 199, label: "Yelk Start" },
@@ -16,6 +15,14 @@ const PLAN_INFO: Record<string, { price: number; setup: number; label: string }>
 };
 
 export default function RegisterPage() {
+  return (
+    <Suspense>
+      <RegisterForm />
+    </Suspense>
+  );
+}
+
+function RegisterForm() {
   const searchParams = useSearchParams();
   const planParam = (searchParams.get("plan") as PlanKey) ?? "groei";
 

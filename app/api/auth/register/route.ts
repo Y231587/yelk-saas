@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createAdminClient } from "@/lib/supabase/server";
-import { createMolliePayment, createMollieCustomer } from "@/lib/mollie";
+import { createMolliePayment } from "@/lib/mollie";
 import { z } from "zod";
 
 const schema = z.object({

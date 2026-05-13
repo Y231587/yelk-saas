@@ -1,13 +1,10 @@
 import { createClient } from "@/lib/supabase/server";
 import { redirect } from "next/navigation";
-import { formatCurrency, formatDate, planLabel, statusLabel } from "@/lib/utils";
+import { formatDate, planLabel, statusLabel } from "@/lib/utils";
 import {
-  TrendingUp,
   FileText,
   Upload,
   AlertCircle,
-  CheckCircle2,
-  Clock,
   Euro,
 } from "lucide-react";
 import Link from "next/link";

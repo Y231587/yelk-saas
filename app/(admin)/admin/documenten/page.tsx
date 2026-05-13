@@ -40,7 +40,7 @@ export default async function AdminDocumentenPage() {
             </thead>
             <tbody className="divide-y divide-slate-100">
               {(documents ?? []).map((doc) => {
-                const cust = doc.customers as { id: string; company_name: string } | null;
+                const cust = doc.customers as unknown as { id: string; company_name: string } | null;
                 return (
                   <tr key={doc.id} className="hover:bg-slate-50">
                     <td className="px-6 py-3">
