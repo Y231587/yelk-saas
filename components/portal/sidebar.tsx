@@ -11,7 +11,6 @@ import {
   Settings,
   LogOut,
   ChevronRight,
-  Smartphone,
 } from "lucide-react";
 import { cn, getInitials } from "@/lib/utils";
 import { createClient } from "@/lib/supabase/client";
@@ -29,7 +28,7 @@ const navItems = [
 
 interface Props {
   profile: Profile | null;
-  customer: (Customer & { subscriptions: unknown[] }) | null;
+  customer: Customer | null;
 }
 
 export function PortalSidebar({ profile, customer }: Props) {

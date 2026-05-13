@@ -1,6 +1,6 @@
 import { createClient } from "@/lib/supabase/server";
 import { redirect } from "next/navigation";
-import { formatCurrency, formatDate, planLabel, statusLabel } from "@/lib/utils";
+import { formatCurrency, formatDate, statusLabel } from "@/lib/utils";
 import { CheckCircle2, AlertTriangle, CreditCard, Calendar } from "lucide-react";
 import Link from "next/link";
 

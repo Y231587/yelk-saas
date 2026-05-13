@@ -1,7 +1,7 @@
 import { createClient } from "@/lib/supabase/server";
 import { notFound } from "next/navigation";
 import { formatDate, formatFileSize, planLabel, statusLabel } from "@/lib/utils";
-import { ArrowLeft, FileText, CreditCard, User, Building2, Phone, Mail } from "lucide-react";
+import { ArrowLeft, FileText, CreditCard, User, Building2 } from "lucide-react";
 import Link from "next/link";
 import { AdminCustomerActions } from "@/components/admin/customer-actions";
 
@@ -25,7 +25,7 @@ export default async function AdminKlantDetailPage({ params }: Props) {
     { data: profile },
     { data: subscriptions },
     { data: documents },
-    { data: transactions },
+    { data: _transactions },
   ] = await Promise.all([
     supabase.from("profiles").select("*").eq("id", customer.owner_id).single(),
     supabase.from("subscriptions").select("*, packages(*)").eq("customer_id", id).order("created_at", { ascending: false }),
@@ -94,7 +94,7 @@ export default async function AdminKlantDetailPage({ params }: Props) {
               {(subscriptions ?? []).length === 0 ? (
                 <div className="px-6 py-8 text-center text-slate-400 text-sm">Geen abonnementen gevonden.</div>
               ) : (subscriptions ?? []).map((sub) => {
-                const pkg = sub.packages as { name: string; monthly_price_eur: number } | null;
+                const pkg = sub.packages as unknown as { name: string; monthly_price_eur: number } | null;
                 return (
                   <div key={sub.id} className="px-6 py-4 flex items-center gap-4">
                     <div className="flex-1">

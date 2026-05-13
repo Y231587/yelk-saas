@@ -27,7 +27,7 @@ const KIND_COLORS: Record<string, string> = {
   overig: "badge-slate",
 };
 
-export function DocumentList({ documents, customerId }: Props) {
+export function DocumentList({ documents, customerId: _customerId }: Props) {
   const [filter, setFilter] = useState("all");
   const [deleting, setDeleting] = useState<string | null>(null);
   const router = useRouter();

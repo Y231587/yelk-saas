@@ -147,7 +147,7 @@ export default function HomePage() {
                   ))}
                 </div>
                 <p className="text-sm text-slate-600 leading-relaxed mb-4">
-                  "{t.quote}"
+                  &quot;{t.quote}&quot;
                 </p>
                 <div>
                   <div className="text-sm font-semibold text-slate-900">{t.name}</div>

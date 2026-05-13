@@ -1,6 +1,6 @@
 import { createClient } from "@/lib/supabase/server";
 import { formatDate } from "@/lib/utils";
-import { AlertTriangle, CheckCircle2 } from "lucide-react";
+import { AlertTriangle } from "lucide-react";
 import Link from "next/link";
 
 export default async function AdminBetalingenPage() {
