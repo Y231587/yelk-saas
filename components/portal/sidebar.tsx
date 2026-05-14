@@ -11,12 +11,12 @@ import {
   Settings,
   LogOut,
   ChevronRight,
-  Smartphone,
 } from "lucide-react";
 import { cn, getInitials } from "@/lib/utils";
 import { createClient } from "@/lib/supabase/client";
 import { useRouter } from "next/navigation";
 import type { Profile, Customer } from "@/types";
+import { Logo } from "@/components/ui/logo";
 
 const navItems = [
   { label: "Dashboard", href: "/dashboard", icon: LayoutDashboard },
@@ -29,7 +29,7 @@ const navItems = [
 
 interface Props {
   profile: Profile | null;
-  customer: (Customer & { subscriptions: unknown[] }) | null;
+  customer: Customer | null;
 }
 
 export function PortalSidebar({ profile, customer }: Props) {
@@ -47,13 +47,8 @@ export function PortalSidebar({ profile, customer }: Props) {
     <aside className="hidden md:flex w-64 flex-col bg-white border-r border-slate-200">
       {/* Logo */}
       <div className="p-6 border-b border-slate-100">
-        <Link href="/dashboard" className="flex items-center gap-2">
-          <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-yelk-gradient">
-            <span className="text-white font-bold text-sm">Y</span>
-          </div>
-          <span className="font-bold text-lg tracking-tight text-slate-900">
-            Yelk <span className="text-yelk-500">Finance</span>
-          </span>
+        <Link href="/dashboard">
+          <Logo size="md" />
         </Link>
       </div>
 

@@ -32,8 +32,8 @@ export default async function AdminAbonnementenPage() {
             </thead>
             <tbody className="divide-y divide-slate-100">
               {(subscriptions ?? []).map((sub) => {
-                const customer = sub.customers as { id: string; company_name: string; email: string } | null;
-                const pkg = sub.packages as { name: string; monthly_price_eur: number } | null;
+                const customer = sub.customers as unknown as { id: string; company_name: string; email: string } | null;
+                const pkg = sub.packages as unknown as { name: string; monthly_price_eur: number } | null;
                 return (
                   <tr key={sub.id} className="hover:bg-slate-50">
                     <td className="px-6 py-4">

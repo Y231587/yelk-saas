@@ -25,6 +25,7 @@ export interface Database {
           role?: "klant" | "admin";
           created_at?: string;
         };
+        Relationships: [];
       };
       customers: {
         Row: {
@@ -54,6 +55,7 @@ export interface Database {
           created_at?: string;
         };
         Update: Partial<Database["public"]["Tables"]["customers"]["Insert"]>;
+        Relationships: [];
       };
       packages: {
         Row: {
@@ -63,8 +65,21 @@ export interface Database {
           setup_fee_eur: number;
           features: string[];
         };
-        Insert: Database["public"]["Tables"]["packages"]["Row"];
-        Update: Partial<Database["public"]["Tables"]["packages"]["Row"]>;
+        Insert: {
+          key: "start" | "groei" | "pro";
+          name: string;
+          monthly_price_eur: number;
+          setup_fee_eur: number;
+          features: string[];
+        };
+        Update: {
+          key?: "start" | "groei" | "pro";
+          name?: string;
+          monthly_price_eur?: number;
+          setup_fee_eur?: number;
+          features?: string[];
+        };
+        Relationships: [];
       };
       subscriptions: {
         Row: {
@@ -88,6 +103,7 @@ export interface Database {
           created_at?: string;
         };
         Update: Partial<Database["public"]["Tables"]["subscriptions"]["Insert"]>;
+        Relationships: [];
       };
       documents: {
         Row: {
@@ -115,6 +131,7 @@ export interface Database {
           created_at?: string;
         };
         Update: Partial<Database["public"]["Tables"]["documents"]["Insert"]>;
+        Relationships: [];
       };
       invoices: {
         Row: {
@@ -142,6 +159,7 @@ export interface Database {
           created_at?: string;
         };
         Update: Partial<Database["public"]["Tables"]["invoices"]["Insert"]>;
+        Relationships: [];
       };
       notifications: {
         Row: {
@@ -165,6 +183,7 @@ export interface Database {
           created_at?: string;
         };
         Update: Partial<Database["public"]["Tables"]["notifications"]["Insert"]>;
+        Relationships: [];
       };
       transactions: {
         Row: {
@@ -190,10 +209,11 @@ export interface Database {
           created_at?: string;
         };
         Update: Partial<Database["public"]["Tables"]["transactions"]["Insert"]>;
+        Relationships: [];
       };
     };
-    Views: Record<string, never>;
-    Functions: Record<string, never>;
-    Enums: Record<string, never>;
+    Views: Record<never, never>;
+    Functions: Record<never, never>;
+    Enums: Record<never, never>;
   };
 }

@@ -5,9 +5,10 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { Logo } from "@/components/ui/logo";
 
 const navLinks = [
-  { label: "Prijzen", href: "/pricing" },
+  { label: "Pakketten", href: "/pricing" },
   { label: "Over ons", href: "/over-ons" },
   { label: "FAQ", href: "/faq" },
   { label: "Contact", href: "/contact" },
@@ -35,13 +36,8 @@ export function MarketingNav() {
     >
       <nav className="page-container flex h-16 items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2">
-          <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-yelk-gradient">
-            <span className="text-white font-bold text-sm">Y</span>
-          </div>
-          <span className="font-bold text-xl tracking-tight text-slate-900">
-            Yelk <span className="text-yelk-500">Finance</span>
-          </span>
+        <Link href="/">
+          <Logo size="md" />
         </Link>
 
         {/* Desktop links */}
@@ -67,7 +63,7 @@ export function MarketingNav() {
           <Link href="/login" className="btn-ghost text-sm">
             Inloggen
           </Link>
-          <Link href="/pricing" className="btn-primary text-sm">
+          <Link href="/register" className="btn-primary text-sm">
             Aan de slag <ChevronRight className="h-4 w-4" />
           </Link>
         </div>
@@ -99,7 +95,7 @@ export function MarketingNav() {
             <Link href="/login" onClick={() => setOpen(false)} className="btn-secondary w-full">
               Inloggen
             </Link>
-            <Link href="/pricing" onClick={() => setOpen(false)} className="btn-primary w-full">
+            <Link href="/register" onClick={() => setOpen(false)} className="btn-primary w-full">
               Aan de slag <ChevronRight className="h-4 w-4" />
             </Link>
           </div>

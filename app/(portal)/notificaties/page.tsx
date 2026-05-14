@@ -1,7 +1,7 @@
 import { createClient } from "@/lib/supabase/server";
 import { redirect } from "next/navigation";
 import { formatDatetime } from "@/lib/utils";
-import { Bell, CheckCheck, Info, AlertTriangle, CheckCircle2, XCircle } from "lucide-react";
+import { Bell, Info, AlertTriangle, CheckCircle2, XCircle } from "lucide-react";
 import { MarkAllReadButton } from "@/components/portal/mark-all-read";
 
 export default async function NotificatiesPage() {

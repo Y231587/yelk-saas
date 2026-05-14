@@ -16,7 +16,7 @@ export default function PrivacyPage() {
           <div className="space-y-8 text-slate-700">
             <div>
               <h2 className="text-xl font-bold text-slate-900 mb-3">1. Verwerkingsverantwoordelijke</h2>
-              <p className="text-sm leading-relaxed">Yelk Finance (hierna: "wij", "ons" of "Yelk Finance") is de verwerkingsverantwoordelijke voor de verwerking van uw persoonsgegevens zoals beschreven in dit privacybeleid.</p>
+              <p className="text-sm leading-relaxed">Yelk Finance (hierna: &quot;wij&quot;, &quot;ons&quot; of &quot;Yelk Finance&quot;) is de verwerkingsverantwoordelijke voor de verwerking van uw persoonsgegevens zoals beschreven in dit privacybeleid.</p>
             </div>
             <div>
               <h2 className="text-xl font-bold text-slate-900 mb-3">2. Welke gegevens verzamelen wij?</h2>

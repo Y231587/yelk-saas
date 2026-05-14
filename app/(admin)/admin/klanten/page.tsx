@@ -1,6 +1,5 @@
 import { createClient } from "@/lib/supabase/server";
 import { formatDate } from "@/lib/utils";
-import { Users, Search, AlertTriangle, CheckCircle2, Clock } from "lucide-react";
 import Link from "next/link";
 
 interface Props {
@@ -19,7 +18,7 @@ export default async function AdminKlantenPage({ searchParams }: Props) {
     .select("id, company_name, contact_name, email, phone, status, payment_status, created_at")
     .order("created_at", { ascending: false });
 
-  if (statusFilter) req = req.eq("status", statusFilter);
+  if (statusFilter) req = req.eq("status", statusFilter as "actief" | "proef" | "geannuleerd" | "openstaand");
   if (query) {
     req = req.or(
       `company_name.ilike.%${query}%,contact_name.ilike.%${query}%,email.ilike.%${query}%`

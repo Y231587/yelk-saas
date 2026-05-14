@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Mail, Phone, MapPin } from "lucide-react";
+import { Logo } from "@/components/ui/logo";
 
 const footerLinks = {
   product: [
@@ -24,13 +25,8 @@ export function Footer() {
         <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-5">
           {/* Brand */}
           <div className="lg:col-span-2">
-            <Link href="/" className="flex items-center gap-2 mb-4">
-              <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-yelk-gradient">
-                <span className="text-white font-bold text-sm">Y</span>
-              </div>
-              <span className="font-bold text-xl text-white">
-                Yelk <span className="text-yelk-400">Finance</span>
-              </span>
+            <Link href="/" className="inline-flex mb-4">
+              <Logo variant="white" size="md" />
             </Link>
             <p className="text-sm text-slate-400 leading-relaxed max-w-xs">
               Modern digitaal boekhoudplatform voor Nederlandse ondernemers.
@@ -55,6 +51,35 @@ export function Footer() {
                 <MapPin className="h-4 w-4" />
                 Nederland
               </div>
+            </div>
+
+            {/* Payment logos */}
+            <div className="mt-8">
+              <p className="text-xs text-slate-500 mb-3 uppercase tracking-wide font-medium">
+                Betaalmethoden
+              </p>
+              <div className="flex flex-wrap gap-2">
+                <div className="flex h-8 items-center justify-center rounded-md bg-white/10 px-3">
+                  <span className="text-xs font-bold text-white">
+                    <span className="text-yelk-400">i</span>DEAL
+                  </span>
+                </div>
+                <div className="flex h-8 items-center justify-center rounded-md bg-white/10 px-3">
+                  <span className="text-xs font-bold text-white tracking-widest">VISA</span>
+                </div>
+                <div className="flex h-8 items-center justify-center rounded-md bg-white/10 px-3">
+                  <span className="text-xs font-bold text-white">Mastercard</span>
+                </div>
+                <div className="flex h-8 items-center justify-center rounded-md bg-white/10 px-3">
+                  <span className="text-xs font-bold text-white">Bancontact</span>
+                </div>
+                <div className="flex h-8 items-center justify-center rounded-md bg-white/10 px-3">
+                  <span className="text-xs font-bold text-white">SEPA</span>
+                </div>
+              </div>
+              <p className="text-xs text-slate-600 mt-2">
+                Betalingen via <span className="text-slate-500">Mollie</span>
+              </p>
             </div>
           </div>
 

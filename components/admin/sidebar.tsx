@@ -9,7 +9,6 @@ import {
   FileText,
   Upload,
   BarChart3,
-  Settings,
   LogOut,
   ShieldCheck,
 } from "lucide-react";

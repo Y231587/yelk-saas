@@ -46,7 +46,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#2d9970",
+  themeColor: "#5d87ff",
   width: "device-width",
   initialScale: 1,
   maximumScale: 1,
@@ -75,7 +75,7 @@ export default function RootLayout({
               fontWeight: "500",
             },
             success: {
-              iconTheme: { primary: "#2d9970", secondary: "#fff" },
+              iconTheme: { primary: "#5d87ff", secondary: "#fff" },
             },
           }}
         />

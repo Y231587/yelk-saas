@@ -10,8 +10,14 @@ import {
   CheckCircle2,
   Star,
 } from "lucide-react";
+import { createClient } from "@/lib/supabase/server";
+import { PricingSection } from "@/components/marketing/pricing-section";
 
-export default function HomePage() {
+export default async function HomePage() {
+  const supabase = await createClient();
+  const { data: packages } = await supabase.from("packages").select("*").order("monthly_price_eur");
+  const plans = packages ?? [];
+
   return (
     <>
       {/* Hero */}
@@ -41,11 +47,11 @@ export default function HomePage() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/pricing" className="btn-primary px-8 py-3.5 text-base">
-                Bekijk pakketten <ChevronRight className="h-5 w-5" />
+              <Link href="/register" className="btn-primary px-8 py-3.5 text-base">
+                Aan de slag <ChevronRight className="h-5 w-5" />
               </Link>
-              <Link href="/contact" className="btn-secondary px-8 py-3.5 text-base bg-white/10 border-white/20 text-white hover:bg-white/20">
-                Stel een vraag
+              <Link href="/pricing" className="btn-secondary px-8 py-3.5 text-base bg-white/10 border-white/20 text-white hover:bg-white/20">
+                Bekijk pakketten
               </Link>
             </div>
 
@@ -147,7 +153,7 @@ export default function HomePage() {
                   ))}
                 </div>
                 <p className="text-sm text-slate-600 leading-relaxed mb-4">
-                  "{t.quote}"
+                  &quot;{t.quote}&quot;
                 </p>
                 <div>
                   <div className="text-sm font-semibold text-slate-900">{t.name}</div>
@@ -156,6 +162,29 @@ export default function HomePage() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Pricing */}
+      <section id="pakketten" className="section bg-white">
+        <div className="page-container">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">
+              Kies uw pakket
+            </h2>
+            <p className="text-lg text-slate-500 max-w-2xl mx-auto">
+              Transparante prijzen, geen verborgen kosten. Maandelijks opzegbaar.
+            </p>
+          </div>
+          {plans.length > 0 ? (
+            <PricingSection plans={plans} />
+          ) : (
+            <div className="text-center">
+              <Link href="/pricing" className="btn-primary">
+                Bekijk alle pakketten <ChevronRight className="h-4 w-4" />
+              </Link>
+            </div>
+          )}
         </div>
       </section>
 
@@ -170,10 +199,10 @@ export default function HomePage() {
             inclusief gratis onboarding.
           </p>
           <Link
-            href="/pricing"
+            href="/register"
             className="inline-flex items-center gap-2 rounded-xl bg-white px-8 py-3.5 text-base font-semibold text-yelk-700 shadow-lg hover:shadow-xl transition-all hover:-translate-y-0.5"
           >
-            Bekijk pakketten <ChevronRight className="h-5 w-5" />
+            Gratis starten <ChevronRight className="h-5 w-5" />
           </Link>
         </div>
       </section>

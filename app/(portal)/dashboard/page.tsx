@@ -1,13 +1,10 @@
 import { createClient } from "@/lib/supabase/server";
 import { redirect } from "next/navigation";
-import { formatCurrency, formatDate, planLabel, statusLabel } from "@/lib/utils";
+import { formatDate, planLabel, statusLabel } from "@/lib/utils";
 import {
-  TrendingUp,
   FileText,
   Upload,
   AlertCircle,
-  CheckCircle2,
-  Clock,
   Euro,
 } from "lucide-react";
 import Link from "next/link";
@@ -25,14 +22,13 @@ export default async function DashboardPage() {
   let transactions: unknown[] = [];
 
   if (customer) {
-    const { data: sub } = await supabase
+    const { data: subs } = await supabase
       .from("subscriptions")
       .select("*, packages(*)")
       .eq("customer_id", customer.id)
       .order("created_at", { ascending: false })
-      .limit(1)
-      .single();
-    subscription = sub;
+      .limit(1);
+    subscription = subs?.[0] ?? null;
 
     const { data: docs } = await supabase
       .from("documents")

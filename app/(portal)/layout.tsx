@@ -23,7 +23,7 @@ export default async function PortalLayout({
 
   const { data: customer } = await supabase
     .from("customers")
-    .select("*, subscriptions(*)")
+    .select("*")
     .eq("owner_id", user.id)
     .single();
 
