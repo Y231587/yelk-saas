@@ -68,7 +68,7 @@ export default async function DashboardPage() {
       {/* Welcome */}
       <div>
         <h1 className="text-2xl font-bold text-slate-900">
-          Goedendag, {profile?.full_name?.split(" ")[0] ?? "gebruiker"} \u{1F44B}
+          Goedendag, {profile?.full_name?.split(" ")[0] ?? "gebruiker"} 👋
         </h1>
         <p className="text-slate-500 text-sm mt-1">
           Hier is een overzicht van uw administratie.

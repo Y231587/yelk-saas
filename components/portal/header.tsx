@@ -8,6 +8,7 @@ import { createClient } from "@/lib/supabase/client";
 import { useRouter } from "next/navigation";
 import { cn, getInitials } from "@/lib/utils";
 import type { Profile, Customer } from "@/types";
+import { Logo } from "@/components/ui/logo";
 
 const navItems = [
   { label: "Dashboard", href: "/dashboard", icon: LayoutDashboard },
@@ -38,11 +39,8 @@ export function PortalHeader({ profile, customer }: Props) {
     <>
       <header className="bg-white border-b border-slate-200 px-6 py-4 flex items-center justify-between md:justify-end">
         {/* Mobile: logo */}
-        <Link href="/dashboard" className="flex items-center gap-2 md:hidden">
-          <div className="flex h-7 w-7 items-center justify-center rounded-xl bg-yelk-gradient">
-            <span className="text-white font-bold text-xs">Y</span>
-          </div>
-          <span className="font-bold text-base text-slate-900">Yelk Finance</span>
+        <Link href="/dashboard" className="md:hidden">
+          <Logo size="sm" />
         </Link>
 
         <div className="flex items-center gap-3">
@@ -68,11 +66,8 @@ export function PortalHeader({ profile, customer }: Props) {
       {menuOpen && (
         <div className="md:hidden fixed inset-0 z-50 bg-white">
           <div className="flex items-center justify-between p-6 border-b border-slate-100">
-            <Link href="/dashboard" className="flex items-center gap-2">
-              <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-yelk-gradient">
-                <span className="text-white font-bold text-sm">Y</span>
-              </div>
-              <span className="font-bold text-lg text-slate-900">Yelk Finance</span>
+            <Link href="/dashboard">
+              <Logo size="md" />
             </Link>
             <button onClick={() => setMenuOpen(false)} className="p-2 rounded-xl hover:bg-slate-100">
               <X className="h-5 w-5" />

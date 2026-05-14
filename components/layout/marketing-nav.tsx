@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { Logo } from "@/components/ui/logo";
 
 const navLinks = [
   { label: "Pakketten", href: "/pricing" },
@@ -35,13 +36,8 @@ export function MarketingNav() {
     >
       <nav className="page-container flex h-16 items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2">
-          <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-yelk-gradient">
-            <span className="text-white font-bold text-sm">Y</span>
-          </div>
-          <span className="font-bold text-xl tracking-tight text-slate-900">
-            Yelk <span className="text-yelk-500">Finance</span>
-          </span>
+        <Link href="/">
+          <Logo size="md" />
         </Link>
 
         {/* Desktop links */}

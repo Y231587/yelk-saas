@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Mail, Phone, MapPin } from "lucide-react";
+import { Logo } from "@/components/ui/logo";
 
 const footerLinks = {
   product: [
@@ -24,13 +25,8 @@ export function Footer() {
         <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-5">
           {/* Brand */}
           <div className="lg:col-span-2">
-            <Link href="/" className="flex items-center gap-2 mb-4">
-              <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-yelk-gradient">
-                <span className="text-white font-bold text-sm">Y</span>
-              </div>
-              <span className="font-bold text-xl text-white">
-                Yelk <span className="text-yelk-400">Finance</span>
-              </span>
+            <Link href="/" className="inline-flex mb-4">
+              <Logo variant="white" size="md" />
             </Link>
             <p className="text-sm text-slate-400 leading-relaxed max-w-xs">
               Modern digitaal boekhoudplatform voor Nederlandse ondernemers.
