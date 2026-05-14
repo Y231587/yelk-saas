@@ -12,11 +12,17 @@ import {
 } from "lucide-react";
 import { createClient } from "@/lib/supabase/server";
 import { PricingSection } from "@/components/marketing/pricing-section";
+import type { Package } from "@/types";
 
 export default async function HomePage() {
-  const supabase = await createClient();
-  const { data: packages } = await supabase.from("packages").select("*").order("monthly_price_eur");
-  const plans = packages ?? [];
+  let plans: Package[] = [];
+  try {
+    const supabase = await createClient();
+    const { data: packages } = await supabase.from("packages").select("*").order("monthly_price_eur");
+    plans = packages ?? [];
+  } catch {
+    // Supabase not configured — page renders without pricing plans
+  }
 
   return (
     <>

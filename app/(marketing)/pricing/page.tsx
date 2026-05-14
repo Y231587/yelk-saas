@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { createClient } from "@/lib/supabase/server";
 import { PricingSection } from "@/components/marketing/pricing-section";
 import { CheckCircle2 } from "lucide-react";
+import type { Package } from "@/types";
 
 export const metadata: Metadata = {
   title: "Prijzen",
@@ -9,10 +10,14 @@ export const metadata: Metadata = {
 };
 
 export default async function PricingPage() {
-  const supabase = await createClient();
-  const { data: packages } = await supabase.from("packages").select("*");
-
-  const plans = packages ?? [];
+  let plans: Package[] = [];
+  try {
+    const supabase = await createClient();
+    const { data: packages } = await supabase.from("packages").select("*");
+    plans = packages ?? [];
+  } catch {
+    // Supabase not configured — page renders without pricing plans
+  }
 
   return (
     <>
