@@ -22,14 +22,13 @@ export default async function DashboardPage() {
   let transactions: unknown[] = [];
 
   if (customer) {
-    const { data: sub } = await supabase
+    const { data: subs } = await supabase
       .from("subscriptions")
       .select("*, packages(*)")
       .eq("customer_id", customer.id)
       .order("created_at", { ascending: false })
-      .limit(1)
-      .single();
-    subscription = sub;
+      .limit(1);
+    subscription = subs?.[0] ?? null;
 
     const { data: docs } = await supabase
       .from("documents")
@@ -69,7 +68,7 @@ export default async function DashboardPage() {
       {/* Welcome */}
       <div>
         <h1 className="text-2xl font-bold text-slate-900">
-          Goedendag, {profile?.full_name?.split(" ")[0] ?? "gebruiker"} 👋
+          Goedendag, {profile?.full_name?.split(" ")[0] ?? "gebruiker"} \u{1F44B}
         </h1>
         <p className="text-slate-500 text-sm mt-1">
           Hier is een overzicht van uw administratie.

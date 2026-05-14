@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { createClient } from "@/lib/supabase/server";
-import { PricingCard } from "@/components/marketing/pricing-card";
+import { PricingSection } from "@/components/marketing/pricing-section";
 import { CheckCircle2 } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -35,15 +35,7 @@ export default async function PricingPage() {
       {/* Pricing cards */}
       <section className="py-20 bg-slate-50">
         <div className="page-container">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            {plans.map((plan, i) => (
-              <PricingCard
-                key={plan.key}
-                plan={plan}
-                highlighted={i === 1}
-              />
-            ))}
-          </div>
+          <PricingSection plans={plans} />
 
           <div className="mt-12 text-center">
             <p className="text-sm text-slate-500">

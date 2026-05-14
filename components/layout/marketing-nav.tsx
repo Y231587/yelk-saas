@@ -7,7 +7,7 @@ import { Menu, X, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
-  { label: "Prijzen", href: "/pricing" },
+  { label: "Pakketten", href: "/pricing" },
   { label: "Over ons", href: "/over-ons" },
   { label: "FAQ", href: "/faq" },
   { label: "Contact", href: "/contact" },
@@ -67,7 +67,7 @@ export function MarketingNav() {
           <Link href="/login" className="btn-ghost text-sm">
             Inloggen
           </Link>
-          <Link href="/pricing" className="btn-primary text-sm">
+          <Link href="/register" className="btn-primary text-sm">
             Aan de slag <ChevronRight className="h-4 w-4" />
           </Link>
         </div>
@@ -99,7 +99,7 @@ export function MarketingNav() {
             <Link href="/login" onClick={() => setOpen(false)} className="btn-secondary w-full">
               Inloggen
             </Link>
-            <Link href="/pricing" onClick={() => setOpen(false)} className="btn-primary w-full">
+            <Link href="/register" onClick={() => setOpen(false)} className="btn-primary w-full">
               Aan de slag <ChevronRight className="h-4 w-4" />
             </Link>
           </div>

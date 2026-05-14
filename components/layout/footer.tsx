@@ -56,6 +56,35 @@ export function Footer() {
                 Nederland
               </div>
             </div>
+
+            {/* Payment logos */}
+            <div className="mt-8">
+              <p className="text-xs text-slate-500 mb-3 uppercase tracking-wide font-medium">
+                Betaalmethoden
+              </p>
+              <div className="flex flex-wrap gap-2">
+                <div className="flex h-8 items-center justify-center rounded-md bg-white/10 px-3">
+                  <span className="text-xs font-bold text-white">
+                    <span className="text-yelk-400">i</span>DEAL
+                  </span>
+                </div>
+                <div className="flex h-8 items-center justify-center rounded-md bg-white/10 px-3">
+                  <span className="text-xs font-bold text-white tracking-widest">VISA</span>
+                </div>
+                <div className="flex h-8 items-center justify-center rounded-md bg-white/10 px-3">
+                  <span className="text-xs font-bold text-white">Mastercard</span>
+                </div>
+                <div className="flex h-8 items-center justify-center rounded-md bg-white/10 px-3">
+                  <span className="text-xs font-bold text-white">Bancontact</span>
+                </div>
+                <div className="flex h-8 items-center justify-center rounded-md bg-white/10 px-3">
+                  <span className="text-xs font-bold text-white">SEPA</span>
+                </div>
+              </div>
+              <p className="text-xs text-slate-600 mt-2">
+                Betalingen via <span className="text-slate-500">Mollie</span>
+              </p>
+            </div>
           </div>
 
           {/* Product */}
