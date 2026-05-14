@@ -1,0 +1,16 @@
+{
+  "projectId": "prj_oHvMG6ku23D5AerNfDN5UWLVyUZx",
+  "orgId": "team_ykRcu9XxNlftQYGojR0WWK3I",
+  "projectName": "yelk-saas",
+  "settings": {
+    "createdAt": 1778710384397,
+    "framework": "nextjs",
+    "devCommand": null,
+    "installCommand": null,
+    "buildCommand": null,
+    "outputDirectory": ".next",
+    "rootDirectory": null,
+    "directoryListing": false,
+    "nodeVersion": "20.x"
+  }
+}
