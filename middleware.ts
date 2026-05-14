@@ -3,12 +3,19 @@ import type { CookieOptions } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
 
 export async function middleware(request: NextRequest) {
+  try {
+    return await handleMiddleware(request);
+  } catch {
+    return NextResponse.next({ request });
+  }
+}
+
+async function handleMiddleware(request: NextRequest) {
   let supabaseResponse = NextResponse.next({ request });
 
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
-  // If env vars missing, allow request through (avoids middleware crash)
   if (!supabaseUrl || !supabaseKey) {
     return supabaseResponse;
   }
@@ -40,15 +47,14 @@ export async function middleware(request: NextRequest) {
 
   const { pathname } = request.nextUrl;
 
-  // Portal routes — require login
-  const isPortalRoute = pathname.startsWith("/dashboard") ||
+  const isPortalRoute =
+    pathname.startsWith("/dashboard") ||
     pathname.startsWith("/abonnement") ||
     pathname.startsWith("/documenten") ||
     pathname.startsWith("/facturen") ||
     pathname.startsWith("/notificaties") ||
     pathname.startsWith("/profiel");
 
-  // Admin routes — require login + admin role
   const isAdminRoute = pathname.startsWith("/admin");
 
   if ((isPortalRoute || isAdminRoute) && !user) {
@@ -59,21 +65,23 @@ export async function middleware(request: NextRequest) {
   }
 
   if (isAdminRoute && user) {
-    // Check admin role via profile
-    const { data: profile } = await supabase
-      .from("profiles")
-      .select("role")
-      .eq("id", user.id)
-      .single();
+    try {
+      const { data: profile } = await supabase
+        .from("profiles")
+        .select("role")
+        .eq("id", user.id)
+        .single();
 
-    if (!profile || profile.role !== "admin") {
-      const url = request.nextUrl.clone();
-      url.pathname = "/dashboard";
-      return NextResponse.redirect(url);
+      if (!profile || profile.role !== "admin") {
+        const url = request.nextUrl.clone();
+        url.pathname = "/dashboard";
+        return NextResponse.redirect(url);
+      }
+    } catch {
+      return supabaseResponse;
     }
   }
 
-  // Redirect logged-in users away from auth pages
   if (user && (pathname === "/login" || pathname === "/register")) {
     const url = request.nextUrl.clone();
     url.pathname = "/dashboard";
